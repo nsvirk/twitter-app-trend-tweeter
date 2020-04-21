@@ -1,0 +1,35 @@
+{
+  "name": "twitter-app-trend-tweeter",
+  "version": "1.0.0",
+  "description": "A Twitter App to get trending topics and tweet them",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsvirk/twitter-app-trend-tweeter.git"
+  },
+  "keywords": [
+    "twitter",
+    "trends",
+    "tweeter",
+    "bot",
+    "twitter",
+    "trends",
+    "twitter",
+    "bot",
+    "twitter",
+    "app"
+  ],
+  "author": "@nsvirk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nsvirk/twitter-app-trend-tweeter/issues"
+  },
+  "homepage": "https://github.com/nsvirk/twitter-app-trend-tweeter#readme",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
