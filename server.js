@@ -20,10 +20,23 @@ let server = http.createServer((req, res) => {
 });
 
 /*******************************
-APP LOGIC
+APP MAIN
 *******************************/
- setInterval( () => {
-     console.log('Tweeting');
+console.log('===================================================');
+console.log('🚀 TWITTER TREND TWEETER STARTED' + ' [localhost:' + port +']');
+console.log('===================================================');
+
+let now                 = new Date() ;
+let interval            = (0.25 * (60 * 60 * 1000)) ; // One Hour
+let nextTweetTime       = Date.now() + interval;
+let nextTweetTimeDt     = new Date(nextTweetTime);
+
+console.log(' Start time => ' + now.toString()) ;
+console.log('   Tweet at => ' + nextTweetTimeDt.toString()) ;
+console.log('===================================================');
+
+setInterval( () => {
+     //console.log('\r\nTweeting at ' + now.toString() + '\r\n');
      let countryCode ;
      countryCode = 'IN'; // Possible IN, US, GB
      TrendTweeter.trendTweeter(countryCode);
@@ -31,12 +44,9 @@ APP LOGIC
      TrendTweeter.trendTweeter(countryCode);
      countryCode = 'GB'; // Possible IN, US, GB
      TrendTweeter.trendTweeter(countryCode);
- }, 1 * 60 * 1000 ); //Tweet Every Hour
+ }, interval ); //Tweet Every Hour
 
 /*******************************
 RUN SERVER
 *******************************/
-console.log(`🚀 Twitter app is running on http://localhost:${port}/`);
-
-// Start the server
 server.listen(port);
