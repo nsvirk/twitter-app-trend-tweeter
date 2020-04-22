@@ -55,10 +55,10 @@ const trendTweeter = async (countryCode) => {
              console.log('      Tweet ID: ' + data.id_str);
              console.log('    Tweet Time: ' + data.created_at);
              console.log('    Local Time: ' + dtStr);
-             console.log(' Tweet Content: ' + '\r\n');
-             console.log('-------------------------------');
+             console.log(' Tweet Content: ');
+             console.log('------------------------------------');
              console.log(data.text);
-             console.log('-------------------------------');
+             console.log('------------------------------------\r\n');
              console.log('===================================================');
 
          }

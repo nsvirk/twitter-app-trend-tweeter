@@ -16,7 +16,7 @@ let server = http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/plain'});
 
     // Send back a response and end the connection
-    res.end('Hello World!\n');
+    res.end('Twitter Trend Tweeter is online!\n');
 });
 
 /*******************************
@@ -27,7 +27,7 @@ console.log('🚀 TWITTER TREND TWEETER STARTED' + ' [localhost:' + port +']');
 console.log('===================================================');
 
 let now                 = new Date() ;
-let interval            = (0.25 * (60 * 60 * 1000)) ; // One Hour
+let interval            = (0.5 * (60 * 60 * 1000)) ; // 1 = One Hour, 0.5 = Half Hour, 0.25 is 15Min
 let nextTweetTime       = Date.now() + interval;
 let nextTweetTimeDt     = new Date(nextTweetTime);
 
@@ -36,15 +36,14 @@ console.log('   Tweet at => ' + nextTweetTimeDt.toString()) ;
 console.log('===================================================');
 
 setInterval( () => {
-     //console.log('\r\nTweeting at ' + now.toString() + '\r\n');
      let countryCode ;
-     countryCode = 'IN'; // Possible IN, US, GB
+     countryCode = 'GB'; // Possible IN, US, GB as on now
      TrendTweeter.trendTweeter(countryCode);
-     countryCode = 'US'; // Possible IN, US, GB
+     countryCode = 'US';
      TrendTweeter.trendTweeter(countryCode);
-     countryCode = 'GB'; // Possible IN, US, GB
+     countryCode = 'IN';
      TrendTweeter.trendTweeter(countryCode);
- }, interval ); //Tweet Every Hour
+ }, interval );
 
 /*******************************
 RUN SERVER
