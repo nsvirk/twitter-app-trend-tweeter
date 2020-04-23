@@ -14,8 +14,8 @@ const trendTweeter = async (countryCode) => {
 
          let woeid, country;
          if (countryCode == 'IN') { woeid = '23424848'; country = 'India' ;};
-         if (countryCode == 'US') { woeid = '23424977'; country = 'United States' ;};
-         if (countryCode == 'GB') { woeid = '23424975'; country = 'United Kingdom' ;};
+         if (countryCode == 'US') { woeid = '23424977'; country = 'UnitedStates' ;};
+         if (countryCode == 'GB') { woeid = '23424975'; country = 'UnitedKingdom' ;};
 
          //Generate Country Flag Emoji from Country Code
          const flag = countryCode.toUpperCase().replace(/./g, char => String.fromCodePoint(char.charCodeAt(0)+127397) );
@@ -26,7 +26,7 @@ const trendTweeter = async (countryCode) => {
          trendsArr.sort(function(a, b){return b.tweet_volume - a.tweet_volume});
 
          //Form Tweet Text
-         let tweetText   = '' + country + ' ' + 'Twitter Trending  ' + flag + '\r\n' + '\r\n' ;
+         let tweetText   = '#Twitter #Top #Trending now in #' + country + ' ' + flag + '\r\n' + '\r\n' ;
          let i,r = 0;
          do {
              if (trendsArr[r]) {
