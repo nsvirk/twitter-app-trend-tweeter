@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/nsvirk/twitter-app-trend-tweeter#readme",
   "dependencies": {
+    "dateformat": "^3.0.3",
     "twit": "^2.2.11"
   }
 }

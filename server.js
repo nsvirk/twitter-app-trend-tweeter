@@ -1,5 +1,6 @@
 //NPM PACKAGES
 let http = require('http');
+let dateFormat = require('dateformat');
 
 //LOCAL FILES
 let TwitWrapper     = require('./twitWrapper.js');
@@ -7,9 +8,11 @@ let TrendTweeter    = require('./trendTweeter.js');
 
 //LOCAL VARIABLES
 const port          = 5000;
+let now             = new Date();
+const myDateFormat  = "ddd mmm dd HH:MM:ss Z yyyy" ;
 
 /*******************************
-CREATE A SIMPLE SERVER
+CREATE A HTTP SERVER
 *******************************/
 let server = http.createServer((req, res) => {
     // Set a response type of plain text for the response
@@ -22,18 +25,18 @@ let server = http.createServer((req, res) => {
 /*******************************
 APP MAIN
 *******************************/
-console.log('===================================================');
+console.log('======================================================');
 console.log('🚀 TWITTER TREND TWEETER STARTED' + ' [localhost:' + port +']');
-console.log('===================================================');
+console.log('======================================================');
 
-let now                 = new Date() ;
-let interval            = (0.5 * (60 * 60 * 1000)) ; // 1 = One Hour, 0.5 = Half Hour, 0.25 is 15Min
+let interval            = (2 * (60 * 60 * 1000)) ; // 1 = One Hour, 0.5 = Half Hour, 0.25 is 15Min, 0.05 = 3min
 let nextTweetTime       = Date.now() + interval;
-let nextTweetTimeDt     = new Date(nextTweetTime);
+let nextTweetTimeDt     = dateFormat(nextTweetTime, myDateFormat);
+let nowDt               = dateFormat(now,           myDateFormat);
 
-console.log(' Start time => ' + now.toString()) ;
-console.log('   Tweet at => ' + nextTweetTimeDt.toString()) ;
-console.log('===================================================');
+console.log('  App start time => ' + nowDt.toString()) ;
+console.log(' Next tweet time => ' + nextTweetTimeDt.toString()) ;
+console.log('======================================================');
 
 setInterval( () => {
      let countryCode ;

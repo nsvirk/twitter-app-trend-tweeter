@@ -1,6 +1,11 @@
+//NPM PACKAGES
 let TwitWrapper     = require('./twitWrapper.js');
+let dateFormat      = require('dateformat');
 
-let tweetCounter = 1;
+//LOCAL VARIABLES
+let tweetCounter    = 1;
+const myDateFormat  = "ddd mmm dd HH:MM:ss Z yyyy" ;
+
 /********************************
 TWEET TRENDS
 ********************************/
@@ -34,10 +39,12 @@ const trendTweeter = async (countryCode) => {
          //console.log(tweetText);
 
          //Post Tweet
-         const tweetResponse = await TwitWrapper.postTextTweet(tweetText) ;
-         const data = tweetResponse.data ;
-         let    dt  = new Date();
-         let dtStr  = dt.toString();
+         const tweetResponse    = await TwitWrapper.postTextTweet(tweetText) ;
+         const data             = tweetResponse.data ;
+         let    now             = new Date();
+         let   nowDt            = dateFormat(now, myDateFormat);
+         let   dtStr            = nowDt.toString();
+
          if (data.errors ) {
              console.log('         ERROR DETAILS');
              console.log('===================================================');

@@ -1,3 +1,4 @@
+//NPM PACKAGES
 var auth = require('./twitterCredentials.js');
 var Twit = require('twit');
 
